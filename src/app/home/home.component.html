@@ -4,6 +4,88 @@
         color: white;
         padding: 20px;
     }
+    .search-box {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+    .product-category {
+        width: 200px;
+    }
+    .search-input {
+        width: 300px;
+        background-color: rgb(19, 23, 42);
+        margin-right: 10px;
+        border-color: rgba(255, 255, 255, 0.5);
+        color: white;
+    }
+    .form-control {
+        background-color: transparent;
+        color: white;
+    }
+
+    .op-category {
+        background-color: rgb(19, 23, 42);
+    }
+
+    .form-control::placeholder { /*Chrom, Firefox, Opera, Safari 10.1+ */
+        color: rgba(255, 255, 255, 0.5);
+        opacity: 1; /* Firefox */
+    }
+
+    .form-control:-ms-input-placeholder { /*Internet Explore */
+        color: rgba(255, 255, 255, 0.5);
+    }
+
+    .form-control:-ms-input-placeholder { /* Microsoft Edge*/
+        color: rgba(255, 255, 255, 0.5);
+    }
+
+    .product-item {
+        background-color: rgb(19, 23, 42);
+        border: 1 solid rgb(35, 39, 61);
+        border-radius: 20px;
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+
+    .product-image {
+        width: 100%;
+        height: auto;
+        margin-bottom: 10px;
+    }
+
+    .product-name {
+        color: white;
+    }
+
+    .product-description {
+        color: rgb(173, 178, 203);
+    }
+
+    .product-warranty {
+        color: rgb(242, 126, 212);
+    }
+    
+    .product-price {
+        color: white;
+    }
+
+    .product-rating {
+        color: #FFD700;
+        margin-top: 10px;
+    }
+
+    .product-actions {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+    }
+
+    .space-x {
+        margin: 0 5px;
+    }
 </style>
 
 <div class="container">
@@ -11,5 +93,122 @@
         <h1>Đây là trang home</h1>
         <p>Trang này hiển thị danh sách sản phẩm, kèm ảnh</p>
         <p>Các man có thể chọn danh sách mua hàng tại đây</p>
+    </div>
+    <!-- Đoạn này có 1 ô search box bên trái và 1 ô combobox bên phải -->
+    <div class="search-box">
+        <input type="text" class="form-control search-input" placeholder="Tìm sản phẩm">
+        <select name="" id="" class="form-control product-category">
+            <option selected disabled class="op-category">Danh mục sản phẩm</option>
+            <option class="op-category">Đồ điện tử</option>
+            <option class="op-category">Đồ gia dụng</option>
+            <option class="op-category">Bánh kẹo</option>
+        </select>
+    </div>
+    <div class="row">
+        <div class="col-lg-4 col-md-6 product-columns">
+            <div class="product-item">
+                <img src="https://cdn.bongdaplus.vn/Assets/Media/2020/07/08/66/yas.jpg" alt="Product-image" class="product-image">
+                <h3 class="product-name">Yasuo Anh Hùng Lãng Kiếm</h3>
+                <p class="product-description">Đây là skin thứ 8 của Yasuo từ trước đến nay.</p>
+                <p class="product-warranty">Sale: 10%</p>
+                <p class="product-price">Giá: <del>100$</del> 90$</p>
+                <div class="product-rating">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star-half-alt"></i>
+                </div>
+                <div class="product-actions">
+                    <button class="btn btn-primary">Thêm vào giỏ hàng</button>
+                    <span class="space-x"></span>
+                    <button class="btn btn-success">Mua ngay</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6 product-columns">
+            <div class="product-item">
+                <img src="https://cdn.bongdaplus.vn/Assets/Media/2020/07/08/66/yas.jpg" alt="Product-image" class="product-image">
+                <h3 class="product-name">Yasuo Anh Hùng Lãng Kiếm</h3>
+                <p class="product-description">Đây là skin thứ 8 của Yasuo từ trước đến nay.</p>
+                <p class="product-warranty">Sale: 10%</p>
+                <p class="product-price">Giá: <del>100$</del> 90$</p>
+                <div class="product-rating">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star-half-alt"></i>
+                </div>
+                <div class="product-actions">
+                    <button class="btn btn-primary">Thêm vào giỏ hàng</button>
+                    <span class="space-x"></span>
+                    <button class="btn btn-success">Mua ngay</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6 product-columns">
+            <div class="product-item">
+                <img src="https://cdn.bongdaplus.vn/Assets/Media/2020/07/08/66/yas.jpg" alt="Product-image" class="product-image">
+                <h3 class="product-name">Yasuo Anh Hùng Lãng Kiếm</h3>
+                <p class="product-description">Đây là skin thứ 8 của Yasuo từ trước đến nay.</p>
+                <p class="product-warranty">Sale: 10%</p>
+                <p class="product-price">Giá: <del>100$</del> 90$</p>
+                <div class="product-rating">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star-half-alt"></i>
+                </div>
+                <div class="product-actions">
+                    <button class="btn btn-primary">Thêm vào giỏ hàng</button>
+                    <span class="space-x"></span>
+                    <button class="btn btn-success">Mua ngay</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6 product-columns">
+            <div class="product-item">
+                <img src="https://cdn.bongdaplus.vn/Assets/Media/2020/07/08/66/yas.jpg" alt="Product-image" class="product-image">
+                <h3 class="product-name">Yasuo Anh Hùng Lãng Kiếm</h3>
+                <p class="product-description">Đây là skin thứ 8 của Yasuo từ trước đến nay.</p>
+                <p class="product-warranty">Sale: 10%</p>
+                <p class="product-price">Giá: <del>100$</del> 90$</p>
+                <div class="product-rating">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star-half-alt"></i>
+                </div>
+                <div class="product-actions">
+                    <button class="btn btn-primary">Thêm vào giỏ hàng</button>
+                    <span class="space-x"></span>
+                    <button class="btn btn-success">Mua ngay</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6 product-columns">
+            <div class="product-item">
+                <img src="https://cdn.bongdaplus.vn/Assets/Media/2020/07/08/66/yas.jpg" alt="Product-image" class="product-image">
+                <h3 class="product-name">Yasuo Anh Hùng Lãng Kiếm</h3>
+                <p class="product-description">Đây là skin thứ 8 của Yasuo từ trước đến nay.</p>
+                <p class="product-warranty">Sale: 10%</p>
+                <p class="product-price">Giá: <del>100$</del> 90$</p>
+                <div class="product-rating">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star-half-alt"></i>
+                </div>
+                <div class="product-actions">
+                    <button class="btn btn-primary">Thêm vào giỏ hàng</button>
+                    <span class="space-x"></span>
+                    <button class="btn btn-success">Mua ngay</button>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
