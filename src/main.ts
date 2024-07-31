@@ -7,6 +7,7 @@ import { LoginComponent } from './app/login/login.component';
 import { RegisterComponent } from './app/register/register.component';
 import { DetailsProductComponent } from './app/details-product/details-product.component';
 // import { AppComponent } from './app/app.component';
+import { FormsModule } from '@angular/forms';
 
-bootstrapApplication( DetailsProductComponent, appConfig)
+bootstrapApplication( RegisterComponent, appConfig)
   .catch((err) => console.error(err));
