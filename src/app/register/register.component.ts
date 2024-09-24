@@ -3,6 +3,8 @@ import { FooterComponent } from "../footer/footer.component";
 import { FormsModule } from '@angular/forms';
 import { NgForm } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-register',
@@ -22,7 +24,7 @@ export class RegisterComponent {
     isAccepted: boolean;
     dateOfBirth: Date;
 
-    constructor(){
+    constructor(private http: HttpClient, private router: Router){
         this.phone = '';
         this.password = '';
         this.retypePassword = '';
@@ -31,6 +33,7 @@ export class RegisterComponent {
         this.isAccepted = false;
         this.dateOfBirth = new Date();
         this.dateOfBirth.setFullYear(this.dateOfBirth.getFullYear() - 18);
+        //Inject
     }
 
     onPhoneChange(){
@@ -38,14 +41,47 @@ export class RegisterComponent {
     }
 
     register(){
-        const message = `phone: ${this.phone}` +
-                        `password: ${this.password}`+
-                        `retypePassword: ${this.retypePassword}`+
-                        `fullName: ${this.fullName}`+
-                        `dateOfBirth: ${this.dateOfBirth}`+
-                        `address: ${this.address}`+
-                        `isAccepted: ${this.isAccepted}`;
-        alert("You pressed register: "+ message);
+        // const message = `phone: ${this.phone}` +
+        //                 `password: ${this.password}`+
+        //                 `retypePassword: ${this.retypePassword}`+
+        //                 `fullName: ${this.fullName}`+
+        //                 `dateOfBirth: ${this.dateOfBirth}`+
+        //                 `address: ${this.address}`+
+        //                 `isAccepted: ${this.isAccepted}`;
+        console.log("start register!");
+       //alert(message)
+        const apiUrl = "localhost:8088/api/v1/users/register";
+        const registerData = {
+            "fullname": this.fullName,
+            "phone_number": this.phone,
+            "address": this.address,
+            "password": this.password,
+            "retype_password": this.retypePassword,
+            "date_of_birth": this.dateOfBirth,
+            "facebook_account_id": 0,
+            "google_account_id": 0,
+            "role_id": 2
+        }
+
+        const headers = new HttpHeaders({'Content-Type': 'application/json'});
+        this.http.post(apiUrl, registerData, {headers})
+        .subscribe({
+            next: (response : any) => {
+                debugger
+                //Xử lý kết quả trả về khi đăng ký thành công
+                this.router.navigate(['/login']);
+            },
+            complete() {
+                debugger
+            },
+            error: (err: any) => {
+                //Xử lý lỗi nếu có
+                alert(`Cannot register, error: ${err.error}`);
+                debugger
+                console.error("Đăng ký không thành công!", err);
+            },
+        });
+
     }
 
     checkPasswordsMatch(){
